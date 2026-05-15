@@ -54,10 +54,22 @@ class Carta{
         if(cartas==null){
             cartas = []
         }
+        let repetida = false;
 
+        cartas.forEach(c => {
+           if(c.code===carta.code&&c.value===carta.value){
+                repetida = true;
+           } 
+        })
+
+        if(repetida){
+            console.log("Carta repetida")
+            return
+        }
+        
         cartas.push(carta)
         localStorage.setItem("cartas", JSON.stringify(cartas))
-        console.log(cartas)
-    }
 
+        console.log(cartas)  
+    }
 }
