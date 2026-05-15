@@ -42,8 +42,22 @@ class Carta{
 
         const guardar = div.querySelector("#btnGuardar")
         guardar.addEventListener("click", ()=>{
-            guardarCarta()
+            Carta.guardarCarta(this)
         })
         return div;
     }
+
+    static guardarCarta(carta){
+        if(!carta instanceof Carta) throw new Error("No es una carta.")
+
+        let cartas = JSON.parse(localStorage.getItem("cartas"))
+        if(cartas==null){
+            cartas = []
+        }
+
+        cartas.push(carta)
+        localStorage.setItem("cartas", JSON.stringify(cartas))
+        console.log(cartas)
+    }
+
 }
