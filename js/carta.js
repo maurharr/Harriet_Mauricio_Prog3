@@ -13,7 +13,7 @@ class Carta{
         this.suit = suit
         this.imagen = imagen
     }
-    
+
     toJsonString(){
         return JSON.stringify(this)
     }
@@ -33,9 +33,17 @@ class Carta{
 
         div.innerHTML=`
         <h5>${this.code} ${this.suit}</h5>
-        <img src="${this.imagen}">
+        <a href="${this.imagen}" target="_blank">
+            <img src="${this.imagen}">
+        </a>
         <p>Valor: $${this.value}</p>
+        <button type="button" id="btnGuardar">Guardar</button>
         `
+
+        const guardar = div.querySelector("#btnGuardar")
+        guardar.addEventListener("click", ()=>{
+            guardarCarta()
+        })
         return div;
     }
 }
