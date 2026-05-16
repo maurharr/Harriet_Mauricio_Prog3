@@ -37,7 +37,7 @@ class Carta{
             <img src="${this.imagen}">
         </a>
         <p>Valor: $${this.value}</p>
-        <button type="button" id="btnGuardar">Guardar</button>
+        <button type="button" id="btnGuardar" type="button" class="btn btn-primary">Guardar</button>
         `
 
         const guardar = div.querySelector("#btnGuardar")
